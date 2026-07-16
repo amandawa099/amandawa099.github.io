@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amanda — Content Strategy & Systems Thinking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F2D3D;
+    --navy-soft: #33465C;
+    --sage: #7C8B75;
+    --sage-light: #A8B6A0;
+    --cream: #F6F2E9;
+    --cream-warm: #EFE8D8;
+    --gold: #A8823C;
+    --ink: #2B2B28;
+    --line: rgba(31, 45, 61, 0.14);
+    --max-w: 760px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--navy); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    color: var(--navy);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+  }
+
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  section { padding: 76px 0; }
+
+  /* ---------- HERO ---------- */
+
+  .hero {
+    position: relative;
+    padding: 108px 0 88px;
+    background: var(--navy);
+    color: var(--cream-warm);
+    overflow: hidden;
+  }
+
+  .dotgrid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.55;
+  }
+
+  .hero .wrap { position: relative; z-index: 1; }
+
+  .hero .eyebrow { color: var(--sage-light); }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-weight: 700;
+    color: #FBF8F1;
+    margin: 14px 0 20px;
+    max-width: 14ch;
+    line-height: 1.08;
+  }
+
+  .hero .sub {
+    max-width: 48ch;
+    font-size: 1.1rem;
+    color: #DCD6C6;
+    margin: 0 0 36px;
+  }
+
+  .stat-strip {
+    display: flex;
+    gap: 34px;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    border-top: 1px solid rgba(246,242,233,0.18);
+  }
+
+  .stat { min-width: 110px; }
+
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #B7BFC9;
+  }
+
+  .hero-foot {
+    margin-top: 36px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- ABOUT (condensed) ---------- */
+
+  .about { border-bottom: 1px solid var(--line); }
+
+  .pullquote {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.35;
+    max-width: 22ch;
+    margin: 18px 0 30px;
+  }
+
+  .about p {
+    max-width: 60ch;
+    margin: 0 0 16px;
+    font-size: 1rem;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    padding: 7px 14px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    color: var(--navy-soft);
+    background: var(--cream-warm);
+  }
+
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 3px;
+    display: inline-block;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #1B1305;
+    font-weight: 500;
+  }
+  .btn-primary:hover { background: #BC9750; transform: translateY(-1px); }
+
+  .btn-ghost {
+    border: 1px solid rgba(246,242,233,0.35);
+    color: #F6F2E9;
+  }
+  .btn-ghost:hover { border-color: rgba(246,242,233,0.7); transform: translateY(-1px); }
+
+  /* ---------- SKILLS ---------- */
+
+  .skills {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .skills h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 6px; }
+  .skills .eyebrow { margin-bottom: 10px; display: block; }
+
+  .skill-groups {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 30px;
+  }
+
+  .skill-group h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--sage);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    margin-bottom: 10px;
+  }
+
+  .skill-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .skill-group li {
+    padding: 7px 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.96rem;
+  }
+  .skill-group li:first-child { border-top: none; }
+
+  /* ---------- CASE STUDY ---------- */
+
+  .case { border-bottom: 1px solid var(--line); }
+
+  .case-head { margin-bottom: 40px; }
+  .case-head h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+    font-weight: 600;
+    margin-top: 10px;
+    max-width: 20ch;
+  }
+
+  .stage {
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+  }
+  .stage:first-of-type { border-top: none; }
+
+  .stage-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .stage h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .stage p { margin: 0; color: var(--ink); }
+
+  .result-figure {
+    font-family: 'Fraunces', serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .result-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--sage);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- HIGHLIGHTS ---------- */
+
+  .highlights { border-bottom: 1px solid var(--line); }
+
+  .highlights h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 34px; }
+
+  .hl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+  }
+
+  .hl-card {
+    background: var(--cream-warm);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 26px 24px;
+  }
+
+  .hl-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .hl-card p { margin: 0; font-size: 0.97rem; }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+
+  footer {
+    background: var(--navy);
+    color: var(--cream-warm);
+    padding: 64px 0 48px;
+  }
+
+  footer .eyebrow { color: var(--sage-light); margin-bottom: 10px; display: block; }
+
+  footer h2 {
+    color: #FBF8F1;
+    font-size: 1.7rem;
+    font-weight: 600;
+    max-width: 16ch;
+    margin-bottom: 22px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95rem;
+  }
+
+  .contact-links a { color: #F6F2E9; text-decoration: none; border-bottom: 1px solid rgba(246,242,233,0.3); padding-bottom: 2px; }
+  .contact-links a:hover { border-color: var(--gold); color: var(--gold); }
+
+  .foot-note {
+    margin-top: 40px;
+    font-size: 0.82rem;
+    color: #8B93A0;
+  }
+
+  @media (max-width: 560px) {
+    section { padding: 56px 0; }
+    .hero { padding: 80px 0 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="dotgrid" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="1.6" fill="#4A5B6E" />
+      </pattern>
+    </defs>
+    <rect width="800" height="500" fill="url(#dots)" />
+    <!-- the found pattern: a few dots connected, quietly, top right -->
+    <g stroke="#A8823C" stroke-width="1.4" opacity="0.9">
+      <line x1="560" y1="70" x2="628" y2="104" />
+      <line x1="628" y1="104" x2="612" y2="172" />
+      <line x1="612" y1="172" x2="684" y2="190" />
+    </g>
+    <g fill="#A8823C">
+      <circle cx="560" cy="70" r="4.5" />
+      <circle cx="628" cy="104" r="4.5" />
+      <circle cx="612" cy="172" r="4.5" />
+      <circle cx="684" cy="190" r="4.5" />
+    </g>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">Content Strategy &amp; Technical Writing</span>
+    <h1>I notice what others miss.</h1>
+    <p class="sub">Pattern recognition, systems thinking, and eight years turning messy processes into ones people can trust.</p>
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="stat-num">80–95%</div>
+        <div class="stat-label">Fewer client errors</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">Newsletters / month</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8 yrs</div>
+        <div class="stat-label">Content &amp; comms</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4x</div>
+        <div class="stat-label">Faster production</div>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <a class="btn btn-primary" href="#case-study">Read the case study</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<section class="about">
+  <div class="wrap">
+    <span class="eyebrow">How I Work</span>
+    <p class="pullquote">Find a system that's almost working. Fine-tune it. Let the results prove it's right.</p>
+    <p>I've always been a "fix it" person — I catch the pattern in a spreadsheet, the small gap in a process, the early sign something's about to break, before it becomes a problem. A biology degree taught me to parse complex information fast; a design background taught me how to present it clearly. Eight years of hands-on content work taught me the rest.</p>
+    <p>What ties it together isn't a job title. It's that I'd rather find the one small fix that prevents a big problem than do more work to manage a broken one.</p>
+    <div class="badge-row">
+      <span class="badge">Pattern Recognition</span>
+      <span class="badge">Systems Thinking</span>
+      <span class="badge">Content Strategy</span>
+      <span class="badge">Technical Writing</span>
+      <span class="badge">Process Design</span>
+    </div>
+  </div>
+</section>
+
+<section class="skills">
+  <div class="wrap">
+    <span class="eyebrow">What I Bring</span>
+    <h2>Skills &amp; Strengths</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Content &amp; Editing</h3>
+        <ul>
+          <li>Content strategy &amp; production</li>
+          <li>Copyediting &amp; proofreading</li>
+          <li>Technical &amp; explanatory writing</li>
+          <li>Brand voice &amp; tone alignment</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Systems &amp; Data</h3>
+        <ul>
+          <li>SQL</li>
+          <li>HTML &amp; CSS</li>
+          <li>Excel-based tracking systems</li>
+          <li>Process auditing &amp; QA design</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Thinking Style</h3>
+        <ul>
+          <li>Pattern recognition</li>
+          <li>Complex-information synthesis</li>
+          <li>Attention to detail</li>
+          <li>Visual &amp; information design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case" id="case-study">
+  <div class="wrap">
+    <div class="case-head">
+      <span class="eyebrow">Flagship Case Study</span>
+      <h2>Fixing a Costly, Invisible Pattern</h2>
+    </div>
+
+    <div class="stage">
+      <div class="stage-label">The Problem</div>
+      <h3>100+ newsletters a month, and a quiet flaw</h3>
+      <p>For years, our department produced 100+ personalized client newsletters every month, each customized in content, branding, and tone to the individual salesperson it represented. It was a high-volume, detail-heavy process, and like most high-volume processes, it had a quiet flaw: two to three batches of newsletters each month were going out with errors serious enough to require reprints. Each reprint meant extra printing costs, extra shipping costs, and a client left waiting on materials they needed for their business. No one had flagged it as a fixable problem, it had just become the cost of doing business at scale.</p>
+    </div>
+
+    <div class="stage">
+      <div class="stage-label">What I Noticed</div>
+      <h3>The errors weren't random</h3>
+      <p>When I looked closer, they clustered around the same handoff point: the gap between "content finalized" and "batch shipped," where nothing was catching small mistakes before they became expensive ones. The process had a blind spot, not a skill problem, so nobody was doing anything wrong, the system just wasn't built to catch what it needed to catch.</p>
+    </div>
+
+    <div class="stage">
+      <div class="stage-label">What I Built</div>
+      <h3>A checkpoint, and a way to see the whole pipeline</h3>
+      <p>I designed and implemented a secondary QA checkpoint specifically at the handoff between printed and packed, a final review step that verified every newsletter had the correct content, correct count, and correct client details before it was sent out. I paired this with a color-coded tracking system I built in Excel so the whole team could see, at a glance, where every client stood in the production pipeline and when their information had last been updated. This closed the visibility gap that had let errors slip through unnoticed in the first place.</p>
+    </div>
+
+    <div class="stage">
+      <div class="stage-label">The Result</div>
+      <div class="result-figure">80–95%</div>
+      <div class="result-label">Reduction in reprint errors</div>
+      <p style="margin-top:16px;">Reprint errors dropped from 2–3 per month to roughly one every six to twelve months. That translated directly into lower printing and shipping costs, fewer frustrated clients, and a process the whole team could trust.</p>
+    </div>
+
+    <div class="stage">
+      <div class="stage-label">What It Taught Me</div>
+      <h3>The smallest intervention that closes the gap</h3>
+      <p>The fix wasn't a big, dramatic overhaul, it was noticing exactly where a well-intentioned process was quietly failing, and building the smallest possible intervention that would close the gap. That's usually where the real leverage is: not in doing more work, but in finding the one point where a small, well-placed check prevents a much bigger cost down the line.</p>
+    </div>
+  </div>
+</section>
+
+<section class="highlights">
+  <div class="wrap">
+    <span class="eyebrow">More Proof Points</span>
+    <h2>Highlights</h2>
+    <div class="hl-grid">
+      <div class="hl-card">
+        <h3>Predicting Failure Before It Happens</h3>
+        <p>I became the go-to person for keeping our office's three printers running. Not because I had formal repair training, but because I paid close enough attention to notice the early signs of trouble before they turned into downtime: a feeder about to jam, a print roller wearing out, or a transfer belt about to give out. I kept a running log of every issue and fix, which meant we always had a record to back us up when it mattered. What started as "the person who can clear a jam fast" became "the person who kept the whole team from losing hours of production time."</p>
+      </div>
+      <div class="hl-card">
+        <h3>Adapting Without Losing Ground</h3>
+        <p>When our department switched design software from Microsoft Publisher to Affinity, I didn't just learn the new tool, I made sure we didn't lose any of the efficiencies I'd already built into our process. I found ways to consolidate documents and add new shortcuts along the way, so the transition ended up making our workflow faster than it had been before the switch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Let's Talk</span>
+    <h2>Get in touch</h2>
+    <div class="contact-links">
+      <a href="mailto:your.email@example.com">your.email@example.com</a>
+      <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">linkedin.com/in/your-profile</a>
+      <a href="/resume.pdf" target="_blank" rel="noopener">Download résumé (PDF)</a>
+    </div>
+    <p class="foot-note">Puyallup, WA — open to remote &amp; hybrid roles</p>
+  </div>
+</footer>
+
+</body>
+</html>
